@@ -131,7 +131,8 @@ function configureCommandlineSwitchesSync(cliArgs) {
 		'disable-hardware-acceleration',
 
 		// provided by Electron
-		'disable-color-correct-rendering'
+		'disable-color-correct-rendering',
+		'force-color-profile'
 	];
 
 	// Read argv config
@@ -150,6 +151,8 @@ function configureCommandlineSwitchesSync(cliArgs) {
 			} else {
 				app.commandLine.appendSwitch(argvKey);
 			}
+		} else {
+			app.commandLine.appendSwitch(argvKey, argvValue);
 		}
 	});
 
